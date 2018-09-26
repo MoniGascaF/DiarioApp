@@ -1,4 +1,4 @@
-package edu.bajio.diarioapp;
+package edu.bajio.appdiario;
 
 import org.junit.Test;
 
