@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2ActivityReg"></activity>
+        <activity android:name=".Main2ActivityReg" />
+        <activity android:name=".Main3ActivityDia" />
+        <activity android:name=".Main4ActivityRegDia"></activity>
     </application>
 
 </manifest>
