@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Agregar Dia"
+        android:text="Add Day"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:text="Titulo:"
+            android:text="Title:"
             android:textSize="30sp" />
 
         <EditText
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Descripcion:"
+        android:text="Description:"
         android:textSize="30sp" />
 
     <LinearLayout
@@ -43,7 +43,7 @@
         android:layout_height="150dp">
 
         <EditText
-            android:id="@+id/txtDescripion"
+            android:id="@+id/txtDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="..."
@@ -54,7 +54,7 @@
     <Button
         android:layout_width="130dp"
         android:layout_height="50dp"
-        android:text="ACEPTAR"
+        android:text="ok"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center"
@@ -63,7 +63,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Recomendacion:"
+        android:text="Recommendation:"
         android:textSize="30sp" />
 
     <LinearLayout

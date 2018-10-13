@@ -11,7 +11,7 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registro"
+        android:text="Create acount"
         android:textAlignment="center"
         android:textSize="36sp"
         android:textStyle="bold" />
@@ -20,7 +20,7 @@
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Correo:"
+        android:text="Email:"
         android:textSize="30sp" />
 
     <EditText
@@ -34,7 +34,7 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contraseña:"
+        android:text="Password:"
         android:textSize="30sp" />
 
     <EditText
@@ -48,7 +48,7 @@
         android:id="@+id/txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Verificar Contraseña:"
+        android:text="Verify Password:"
         android:textSize="30sp" />
 
     <EditText
@@ -62,9 +62,8 @@
         android:id="@+id/btnAceptarR"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Aceptar"
+        android:text="Create"
         android:textAlignment="center"
         android:layout_gravity="center"/>
-
 
 </LinearLayout>
