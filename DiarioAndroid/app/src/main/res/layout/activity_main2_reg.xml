@@ -24,11 +24,11 @@
         android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/txtCorreoR"
+        android:id="@+id/txtUserR"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/textView11"
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/txt"
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnAceptarR"

@@ -21,7 +21,7 @@ public class HTTPDataHandler
 
     }
 
-    public void GetHTTPData(String urlString)
+    public String GetHTTPData(String urlString)
     {
         try
         {
@@ -54,6 +54,8 @@ public class HTTPDataHandler
         {
             e.printStackTrace();
         }
+
+        return stream;
     }
 
     public void PostHTTPData(String urlString, String json)
