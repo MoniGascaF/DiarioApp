@@ -13,7 +13,6 @@
                       <PersistentState>
                         <option name="children">
                           <map>
-<<<<<<< Updated upstream
                             <entry key="launcher">
                               <value>
                                 <PersistentState>
@@ -41,8 +40,6 @@
                                 </PersistentState>
                               </value>
                             </entry>
-=======
->>>>>>> Stashed changes
                             <entry key="launcherLegacy">
                               <value>
                                 <PersistentState>
@@ -50,13 +47,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-<<<<<<< Updated upstream
                                       <entry key="imageAsset" value="$USER_HOME$/Downloads/icons8-administrador-del-hombre-480.png" />
                                       <entry key="outputName" value="image_user" />
-=======
-                                      <entry key="imageAsset" value="$USER_HOME$/Downloads/icons8-atrás-90 (1).png" />
-                                      <entry key="outputName" value="back" />
->>>>>>> Stashed changes
                                     </map>
                                   </option>
                                 </PersistentState>
