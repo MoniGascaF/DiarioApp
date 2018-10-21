@@ -1,4 +1,4 @@
-package edu.bajio.appdiario;
+package edu.bajio.appdiario.Class;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

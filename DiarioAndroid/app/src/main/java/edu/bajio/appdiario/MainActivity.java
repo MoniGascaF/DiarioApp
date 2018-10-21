@@ -17,6 +17,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.bajio.appdiario.Class.Common;
+import edu.bajio.appdiario.Class.HTTPDataHandler;
 import edu.bajio.appdiario.Class.Usuario;
 
 public class MainActivity extends AppCompatActivity {
