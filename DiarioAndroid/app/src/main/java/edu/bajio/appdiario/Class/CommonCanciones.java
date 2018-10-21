@@ -1,9 +1,8 @@
-package edu.bajio.appdiario;
-import edu.bajio.appdiario.Class.Usuario;
+package edu.bajio.appdiario.Class;
 
-public class Common {
+public class CommonCanciones {
     private static String DB_Name = "diario_emociones";
-    private static String Collection = "Usuario";
+    private static String Collection = "Canciones";
     public static String API_KEY = "RDLbQ83bHGU0_fFwYeJu5gaV51Fl7yvs";
 
 

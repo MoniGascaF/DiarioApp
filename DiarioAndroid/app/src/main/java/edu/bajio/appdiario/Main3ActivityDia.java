@@ -21,8 +21,8 @@ public class Main3ActivityDia extends AppCompatActivity {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (Main3ActivityDia.this, Main4ActivityRegDia.class);
-                startActivity(intent);
+                Intent intenta = new Intent (Main3ActivityDia.this, Main4ActivityRegDia.class);
+                startActivity(intenta);
             }
         });
     }
