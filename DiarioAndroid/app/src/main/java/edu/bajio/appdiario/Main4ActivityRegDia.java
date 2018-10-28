@@ -1,8 +1,12 @@
 package edu.bajio.appdiario;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.renderscript.Allocation;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,8 +41,11 @@ import java.util.List;
 import edu.bajio.appdiario.Class.Canciones;
 import edu.bajio.appdiario.Class.Common;
 import edu.bajio.appdiario.Class.CommonCanciones;
+import edu.bajio.appdiario.Class.CommonDias;
+import edu.bajio.appdiario.Class.CommonImagenes;
 import edu.bajio.appdiario.Class.CommonPeliculas;
 import edu.bajio.appdiario.Class.HTTPDataHandler;
+import edu.bajio.appdiario.Class.Imagenes;
 import edu.bajio.appdiario.Class.Peliculas;
 import edu.bajio.appdiario.Class.Usuario;
 
@@ -57,11 +64,18 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
 
     Canciones cancion = null;
     Peliculas pelicula = null;
+    Imagenes imagen = new Imagenes();
 
     String Link;
 
+
+    String nombre;
+
+    int tipo;
+
     List<Canciones> canciones = new ArrayList<Canciones>();
     List<Peliculas> peliculas = new ArrayList<Peliculas>();
+    List<Imagenes> imagenes = new ArrayList<Imagenes>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +96,9 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
             public void onClick(View v) {
                 String desc = txtDescripcion.getText().toString();
                 String titu = txtTitulo.getText().toString();
+                new PostDia().execute(CommonDias.getAddressAPI());
 
-                if(desc.equals("") || titu.equals(""))
+                /*if(desc.equals("") || titu.equals(""))
                 {
                     Toast.makeText(getApplication(),"No dejes campos vacios", Toast.LENGTH_LONG).show();
                 }
@@ -92,7 +107,7 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
                     AskWatsonTask task = new AskWatsonTask();
 
                     task.execute(new String[]{});
-                }
+                }*/
             }
         });
 
@@ -101,22 +116,58 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
 
     private void ElegirInfo()
     {
-        int numeros = (int) (Math.random()*3)+1;
+        tipo = (int) (Math.random()*3)+1;
 
-        if(numeros == 1)
+        if(tipo == 1)
         {
 
             new GetDataCanciones().execute(CommonCanciones.getAddressAPI());
 
         }
-        else if(numeros == 2)
+        else if(tipo == 2)
         {
             new GetDataPeliculas().execute(CommonPeliculas.getAddressAPI());
         }
-        else if (numeros == 3)
+        else if (tipo == 3)
         {
-            ima.setVisibility(View.VISIBLE);
-            ima.setImageResource(R.mipmap.back);
+            new GetDataImagenes().execute(CommonImagenes.getAddressAPI());
+        }
+    }
+
+
+    class GetDataImagenes extends AsyncTask<String,Void,String> {
+
+        ProgressDialog pdiq = new ProgressDialog(Main4ActivityRegDia.this);
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            pdiq.setTitle("Please wait...");
+            pdiq.show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String stream = null;
+            String urlString = strings[0];
+
+            HTTPDataHandler http = new HTTPDataHandler();
+            stream = http.GetHTTPData(urlString);
+            return stream;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            Gson gson = new Gson();
+            Type listType = new TypeToken<List<Imagenes>>(){}.getType();
+            imagenes = gson.fromJson(s,listType);
+            pdiq.dismiss();
+            ElegirImagen();
+
         }
     }
 
@@ -192,6 +243,46 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
         }
     }
 
+    class PostDia extends AsyncTask<String,Void,String>
+    {
+        ProgressDialog pdia = new ProgressDialog(Main4ActivityRegDia.this);
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            pdia.setTitle("Please wait...");
+            pdia.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String urlString =  params[0];
+
+            HTTPDataHandler hh = new HTTPDataHandler();
+            String json = "(\"titulo\":\"" + "H" + "\")";
+                    //"(\"descripcion\":\"" + txtDescripcion.getText().toString() + "\")," +
+                    //"(\"emocion\":\"" + emocion + "\")," +
+                    //"(\"tipo\":\"" + tipo + "\")," +
+                    //"(\"nombre\":\"" + nombre + "\")";
+
+            hh.PostHTTPData(urlString,json);
+            return "";
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+            pdia.dismiss();
+
+
+        }
+
+    }
+
     private void ElegirCancion()
     {
         List<Canciones> ca = new ArrayList<Canciones>();
@@ -209,10 +300,12 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
         cancion = ca.get(numero);
         Link = cancion.getLink();
 
+        nombre = Link;
+
         YTPlayer.setVisibility(View.VISIBLE);
 
         YTPlayer.initialize(ClaveYoutube,this);
-
+        new PostDia().execute(CommonDias.getAddressAPI());
 
     }
 
@@ -231,10 +324,35 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
         pelicula = pe.get(numero);
         Link = pelicula.getLink();
 
+        nombre = Link;
+
         YTPlayer.setVisibility(View.VISIBLE);
 
         YTPlayer.initialize(ClaveYoutube,this);
+        new PostDia().execute(CommonDias.getAddressAPI());
 
+    }
+
+    private void ElegirImagen()
+    {
+        List<Imagenes> im = new ArrayList<Imagenes>();
+        for (int i = 0;i < imagenes.size(); i++) {
+            imagen = imagenes.get(i);
+            if (imagen.getEmocion().equals(emocion)) {
+                im.add(imagen);
+            }
+        }
+            int numero = (int) (Math.random() * im.size());
+            imagen = im.get(numero);
+
+            String imag = imagen.getNombre();
+            nombre = imag;
+            Context c = getApplicationContext();
+            int id = c.getResources().getIdentifier("mipmap/"+imag,null, c.getPackageName());
+
+            ima.setVisibility(View.VISIBLE);
+            ima.setImageResource(id);
+            new PostDia().execute(CommonDias.getAddressAPI());
 
     }
 
