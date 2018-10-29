@@ -67,26 +67,32 @@ public class HTTPDataHandler
 
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);
+            urlConnection.setDoInput(true);
 
             byte[] out = json.getBytes(StandardCharsets.UTF_8);
             int length = out.length;
 
             urlConnection.setFixedLengthStreamingMode(length);
-            urlConnection.setRequestProperty("Content-Type","application/json; charset-UTF-8");
-            urlConnection.connect();
+            urlConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            urlConnection.setRequestProperty("Accept", "application/json");
+            urlConnection.connect();;
             try (OutputStream os = urlConnection.getOutputStream())
             {
                 os.write(out);
             }
-            InputStream response = urlConnection.getInputStream();
+            //InputStream response = urlConnection.getInputStream();
+            //return  response.toString();
         }
         catch (MalformedURLException e)
         {
             e.printStackTrace();
+            //return "";
         } catch (ProtocolException e) {
             e.printStackTrace();
+            //return "";
         } catch (IOException e) {
-            e.printStackTrace();
+             e.printStackTrace();
+            //return "";
         }
     }
 
