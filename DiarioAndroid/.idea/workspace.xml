@@ -54,20 +54,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main2ActivityReg.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main2ActivityReg.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Main2ActivityReg.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="66" column="37" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="66" selection-end-column="37" />
+            <state relative-caret-position="1395">
+              <caret line="114" column="68" lean-forward="false" selection-start-line="114" selection-start-column="68" selection-end-line="114" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
+            <state relative-caret-position="132">
               <caret line="74" column="105" lean-forward="false" selection-start-line="74" selection-start-column="105" selection-end-line="74" selection-end-column="105" />
               <folding>
                 <element signature="e#1344#2816#0" expanded="true" />
@@ -2137,12 +2137,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Class/HTTPDataHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main4_reg_dia.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Main4ActivityRegDia.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Main2ActivityReg.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Class/Dia.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main3_dia.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/simple_list_item_1.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Main3ActivityDia.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Main2ActivityReg.java" />
       </list>
     </option>
   </component>
@@ -2924,17 +2924,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Main2ActivityReg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="66" column="37" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="66" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
+        <state relative-caret-position="132">
           <caret line="74" column="105" lean-forward="false" selection-start-line="74" selection-start-column="105" selection-end-line="74" selection-end-column="105" />
           <folding>
             <element signature="e#1344#2816#0" expanded="true" />
@@ -2942,6 +2934,14 @@
             <element signature="e#2860#3104#0" expanded="true" />
             <element signature="e#3103#3104#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/bajio/appdiario/Main2ActivityReg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1395">
+          <caret line="114" column="68" lean-forward="false" selection-start-line="114" selection-start-column="68" selection-end-line="114" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>

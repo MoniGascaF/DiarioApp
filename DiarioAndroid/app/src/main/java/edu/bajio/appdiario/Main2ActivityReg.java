@@ -107,8 +107,13 @@ public class Main2ActivityReg extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
+            txtPassword1.setText("");
+            txtPassword2.setText("");
+            txtUsuario.setText("");
             pdia.dismiss();
+
+            Toast toast = Toast.makeText(getApplicationContext(), "Registered user", Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 }
