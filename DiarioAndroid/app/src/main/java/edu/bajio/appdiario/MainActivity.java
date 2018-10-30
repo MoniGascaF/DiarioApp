@@ -55,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
                     String txtPa = txtPass.getText().toString();
                     if ((txtU.equals(usuario.getUsuario()))&&(txtPa.equals(usuario.getPassword())))
                     {
+                        txtUser.setText("");
+                        txtPass.setText("");
                         Intent intent = new Intent(MainActivity.this, Main3ActivityDia.class);
+                        intent.putExtra("usuario",usuario.getUsuario());
                         startActivity(intent);
                         break;
                     }
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (MainActivity.this, Main2ActivityReg.class);
+
                 startActivity(intent);
             }
         });
