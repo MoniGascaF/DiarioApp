@@ -1,5 +1,11 @@
 package edu.bajio.appdiario.Class;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -58,7 +64,54 @@ public class HTTPDataHandler
         return stream;
     }
 
-    public void PostHTTPData(String urlString, String json)
+    public void PostHTTPData(String urlString, JSONObject json)
+    {
+        try
+        {
+            URL url = new URL(urlString);
+            HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
+
+            urlConnection.setRequestMethod("POST");
+            urlConnection.setDoOutput(true);
+            urlConnection.setDoInput(true);
+
+
+            //int length = out.length;
+
+            byte[] out = json.toString().getBytes();
+
+
+            //urlConnection.setFixedLengthStreamingMode(length);
+            urlConnection.setRequestProperty("Content-Type", "application/json");
+            //urlConnection.setRequestProperty("Accept", "application/json");
+            urlConnection.connect();;
+            try (OutputStream os = urlConnection.getOutputStream())
+            {
+                os.write(out);
+                os.flush();
+                os.close();
+            }
+
+            int responseCode = urlConnection.getResponseCode();
+
+            int a = 0;
+            //InputStream response = urlConnection.getInputStream();
+            //return  response.toString();
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+            //return "";
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+            //return "";
+        } catch (IOException e) {
+             e.printStackTrace();
+            //return "";
+        }
+    }
+
+    /*public void PostHTTPData(String urlString, String json)
     {
         try
         {
@@ -91,10 +144,10 @@ public class HTTPDataHandler
             e.printStackTrace();
             //return "";
         } catch (IOException e) {
-             e.printStackTrace();
+            e.printStackTrace();
             //return "";
         }
-    }
+    }*/
 
     public void PutHTTPData(String urlString, String newValue)
     {

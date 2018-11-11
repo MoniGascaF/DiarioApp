@@ -13,11 +13,11 @@
 
 
         <Button
-            android:id="@+id/btnRegresar"
+            android:id="@+id/btnLogout"
             android:layout_width="89dp"
             android:layout_height="50dp"
-            android:text="Logout"
-            android:layout_gravity="left" />
+            android:layout_gravity="left"
+            android:text="Logout" />
 
         <TextView
             android:layout_width="219dp"

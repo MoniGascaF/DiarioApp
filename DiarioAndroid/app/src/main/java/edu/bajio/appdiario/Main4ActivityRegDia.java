@@ -20,6 +20,8 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.NaturalLanguageUnderstanding;
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.AnalysisResults;
@@ -33,6 +35,9 @@ import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.En
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.Features;
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.KeywordsOptions;
 import com.ibm.watson.developer_cloud.natural_language_understanding.v1.model.KeywordsResult;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -51,10 +56,14 @@ import edu.bajio.appdiario.Class.Usuario;
 
 public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
+    Bundle datos;
+    String username;
+
     ImageView ima;
     EditText txtDescripcion;
     Button btnanalizar;
     EditText txtTitulo;
+    Button btnRegresar4;
 
     YouTubePlayerView YTPlayer;
 
@@ -81,12 +90,16 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4_reg_dia);
+        datos = getIntent().getExtras();
+        username = datos.getString("usuario");
 
         txtDescripcion = (EditText) findViewById(R.id.txtDescripcion);
         ima = (ImageView) findViewById(R.id.ImageV);
         btnanalizar = (Button) findViewById(R.id.btnAceptarDia);
         YTPlayer = (YouTubePlayerView) findViewById(R.id.YTVideo);
         txtTitulo = (EditText) findViewById(R.id.txtTitulo);
+        btnRegresar4 = (Button) findViewById(R.id.btnRegresar4);
+
 
 
 
@@ -96,9 +109,9 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
             public void onClick(View v) {
                 String desc = txtDescripcion.getText().toString();
                 String titu = txtTitulo.getText().toString();
-                new PostDia().execute(CommonDias.getAddressAPI());
+                //new PostDia().execute(CommonDias.getAddressAPI());
 
-                /*if(desc.equals("") || titu.equals(""))
+                if(desc.equals("") || titu.equals(""))
                 {
                     Toast.makeText(getApplication(),"No dejes campos vacios", Toast.LENGTH_LONG).show();
                 }
@@ -107,7 +120,16 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
                     AskWatsonTask task = new AskWatsonTask();
 
                     task.execute(new String[]{});
-                }*/
+                }
+            }
+        });
+
+        btnRegresar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intenta = new Intent (Main4ActivityRegDia.this, Main3ActivityDia.class);
+                intenta.putExtra("usuario",username);
+                startActivity(intenta);
             }
         });
 
@@ -261,11 +283,26 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
             String urlString =  params[0];
 
             HTTPDataHandler hh = new HTTPDataHandler();
-            String json = "(\"titulo\":\"" + "H" + "\")";
+           // String json = "(\"titulo\":\"" + "H" + "\")";
                     //"(\"descripcion\":\"" + txtDescripcion.getText().toString() + "\")," +
                     //"(\"emocion\":\"" + emocion + "\")," +
                     //"(\"tipo\":\"" + tipo + "\")," +
                     //"(\"nombre\":\"" + nombre + "\")";
+
+            JSONObject json = new JSONObject();
+
+            try {
+                json.put("usuario",username);
+                json.put("titulo",txtTitulo.getText().toString());
+                json.put("descripcion",txtDescripcion.getText().toString());
+                json.put("emocion",emocion);
+                json.put("tipo",tipo);
+                json.put("nombre",nombre);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
             hh.PostHTTPData(urlString,json);
             return "";
