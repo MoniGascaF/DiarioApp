@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.bajio.appdiario.Adapter.RecyclerViewAdaptador;
 import edu.bajio.appdiario.Class.Common;
 import edu.bajio.appdiario.Class.CommonDias;
 import edu.bajio.appdiario.Class.Dia;
@@ -30,9 +33,10 @@ public class Main3ActivityDia extends AppCompatActivity {
     Bundle datos;
     String username;
     Button btnLogout;
-    ListView lstDia;
 
-    List<String> values = new ArrayList<String>();
+    RecyclerView recyclerView;
+    RecyclerViewAdaptador recyclerViewAdaptador;
+
 
     List<Dia> dias = new ArrayList<Dia>();
     List<Dia> diasU = new ArrayList<Dia>();
@@ -45,12 +49,16 @@ public class Main3ActivityDia extends AppCompatActivity {
         setContentView(R.layout.activity_main3_dia);
         datos = getIntent().getExtras();
         username = datos.getString("usuario");
-        lstDia = (ListView) findViewById(R.id.lstDia);
+
+
 
         btnAgregar = (FloatingActionButton) findViewById(R.id.btnDia);
         btnLogout = (Button) findViewById(R.id.btnLogout);
 
         new GetData().execute(CommonDias.getAddressAPI());
+
+        recyclerView = (RecyclerView) findViewById(R.id.lstMarc);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
@@ -110,13 +118,15 @@ public class Main3ActivityDia extends AppCompatActivity {
                 if(user.equals(username))
                 {
                     diasU.add(dia);
-                    values.add(dia.getTitulo());
 
                 }
             }
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(),R.layout.simple_list_item_1,values);
 
-            lstDia.setAdapter(adapter);
+            recyclerViewAdaptador = new RecyclerViewAdaptador(diasU);
+            recyclerView.setAdapter(recyclerViewAdaptador);
+
+            recyclerView.setClickable(true);
+
         }
     }
 }
