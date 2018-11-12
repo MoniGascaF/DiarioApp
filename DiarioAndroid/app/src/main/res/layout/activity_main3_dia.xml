@@ -11,13 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp">
 
-
-        <Button
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/btnLogout"
-            android:layout_width="89dp"
-            android:layout_height="50dp"
             android:layout_gravity="left"
-            android:text="Logout" />
+            android:text="@string/logout"
+            style="@style/FlatButton"/>
 
         <TextView
             android:layout_width="219dp"
@@ -28,25 +28,28 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="right"
-            android:text="+"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:id="@+id/btnDia"/>
-
     </LinearLayout>
 
-
-    <ListView
-        android:id="@+id/lstDia"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbarSize="15sp">
+        android:layout_height="match_parent">
 
+        <ListView
+            android:id="@+id/lstDia"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
 
-    </ListView>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/btnDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/masicon"
+            android:backgroundTint="@color/colorFB"
+            app:borderWidth="0dp"
+            app:fabSize="normal" />
+    </FrameLayout>
 
 </LinearLayout>
