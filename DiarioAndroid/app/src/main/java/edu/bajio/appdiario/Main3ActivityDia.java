@@ -3,6 +3,7 @@ package edu.bajio.appdiario;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,7 @@ import edu.bajio.appdiario.Class.Usuario;
 
 public class Main3ActivityDia extends AppCompatActivity {
 
-    Button btnAgregar;
+    FloatingActionButton btnAgregar;
     Bundle datos;
     String username;
     Button btnLogout;
@@ -46,7 +47,7 @@ public class Main3ActivityDia extends AppCompatActivity {
         username = datos.getString("usuario");
         lstDia = (ListView) findViewById(R.id.lstDia);
 
-        btnAgregar = (Button) findViewById(R.id.btnDia);
+        btnAgregar = (FloatingActionButton) findViewById(R.id.btnDia);
         btnLogout = (Button) findViewById(R.id.btnLogout);
 
         new GetData().execute(CommonDias.getAddressAPI());

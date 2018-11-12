@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RaisedButtonSign" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:backgroundTint">@color/colorRaisedButtonBackground</item>
+        <item name="android:textColor">@color/colorRaisedButtonText</item>
+    </style>
+
+    <style name="RaisedButtonAcount" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:backgroundTint">@color/colorRaisedButtonBackgroundAcount</item>
+        <item name="android:textColor">@color/colorRaisedButtonText</item>
+    </style>
+
+    <style name="FlatButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/colorFlatButtonText </item>
+    </style>
+
 </resources>

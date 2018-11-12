@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">AppDiario</string>
     <string name="title_activity_maps">Map</string>
+    <string name="logout">Logout</string>
+
+    <string name="hint_user">User</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_password_veri">Verify Password</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_description">Description</string>
 </resources>
