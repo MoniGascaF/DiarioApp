@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         btnAceptar = (Button) findViewById(R.id.btnAceptarL);
         btnRegistrar = (Button) findViewById(R.id.btnRegistrarL);
 
+        this.setTitle("Inicio");
+
         new GetData().execute(Common.getAddressAPI());
 
         btnAceptar.setOnClickListener(new View.OnClickListener() {
@@ -59,17 +61,25 @@ public class MainActivity extends AppCompatActivity {
                     toast.show();
                 }
                 else {
-                    for (int i = 0; i < usuarios.size(); i++) {
-                        usuario = usuarios.get(i);
-                        if ((txtU.equals(usuario.getUsuario())) && (txtPa.equals(usuario.getPassword()))) {
-                            txtUser.setText("");
-                            txtPass.setText("");
-                            ban = 1;
-                            Intent intent = new Intent(MainActivity.this, Main3ActivityDia.class);
-                            intent.putExtra("usuario", usuario.getUsuario());
-                            startActivity(intent);
-                            break;
+                    try{
+                        for (int i = 0; i < usuarios.size(); i++) {
+                            usuario = usuarios.get(i);
+                            if ((txtU.equals(usuario.getUsuario())) && (txtPa.equals(usuario.getPassword()))) {
+                                txtUser.setText("");
+                                txtPass.setText("");
+                                ban = 1;
+                                Intent intent = new Intent(MainActivity.this, Main3ActivityDia.class);
+                                intent.putExtra("usuario", usuario.getUsuario());
+                                startActivity(intent);
+                                break;
+                            }
                         }
+                    }
+                    catch (Exception e)
+                    {
+                        ban = 1;
+                        Toast toast = Toast.makeText(getApplicationContext(), "Without internet connection", Toast.LENGTH_SHORT);
+                        toast.show();
                     }
                     if (ban == 0)
                     {

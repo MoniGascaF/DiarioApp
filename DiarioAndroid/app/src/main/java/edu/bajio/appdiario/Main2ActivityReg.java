@@ -36,6 +36,8 @@ public class Main2ActivityReg extends AppCompatActivity {
         txtPassword1 = (EditText)findViewById(R.id.txtPwdR);
         txtPassword2 = (EditText) findViewById(R.id.txtPwd2R);
 
+        this.setTitle("Registro de Usuario");
+
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

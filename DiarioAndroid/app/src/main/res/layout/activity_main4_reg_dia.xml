@@ -86,6 +86,7 @@
             android:id="@+id/YTVideo"
             android:visibility="gone" />
 
+
         <ImageView
             android:id="@+id/ImageV"
             android:layout_width="match_parent"
