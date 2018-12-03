@@ -100,9 +100,7 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
         txtTitulo = (EditText) findViewById(R.id.txtTitulo);
         btnRegresar4 = (Button) findViewById(R.id.btnRegresar4);
 
-
-
-
+        this.setTitle("Registrar Diario");
 
         btnanalizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -385,7 +383,7 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
             String imag = imagen.getNombre();
             nombre = imag;
             Context c = getApplicationContext();
-            int id = c.getResources().getIdentifier("mipmap/"+imag,null, c.getPackageName());
+            int id = c.getResources().getIdentifier("drawable/"+imag,null, c.getPackageName());
 
             ima.setVisibility(View.VISIBLE);
             ima.setImageResource(id);

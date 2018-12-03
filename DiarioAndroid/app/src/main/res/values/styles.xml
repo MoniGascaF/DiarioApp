@@ -18,6 +18,11 @@
         <item name="android:textColor">@color/colorRaisedButtonText</item>
     </style>
 
+    <style name="RaisedButtonRecomendation" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:backgroundTint">@color/colorRaisedButtonBackgroundReomendation</item>
+        <item name="android:textColor">@color/colorRaisedButtonText</item>
+    </style>
+
     <style name="FlatButton" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:textColor">@color/colorFlatButtonText </item>
     </style>

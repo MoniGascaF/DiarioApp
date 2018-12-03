@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorRaisedButtonBackground">#3b577e</color>
     <color name="colorRaisedButtonBackgroundAcount">#709cda</color>
+    <color name="colorRaisedButtonBackgroundReomendation">#709cda</color>
     <color name="colorRaisedButtonText">#ffffff</color>
     <color name="colorFlatButtonText">#ffffff</color>
     <color name="colorFB">#FF3F51B5</color>

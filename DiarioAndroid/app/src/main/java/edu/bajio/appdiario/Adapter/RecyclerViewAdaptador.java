@@ -19,8 +19,6 @@ import edu.bajio.appdiario.R;
 public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdaptador.ViewHolder> {
 
 
-
-
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
         private TextView titulo;
@@ -53,7 +51,7 @@ public class RecyclerViewAdaptador extends RecyclerView.Adapter<RecyclerViewAdap
         Dia dia = new Dia();
         dia = marcadorLista.get(position);
         holder.titulo.setText(dia.getTitulo());
-        holder.img.setImageResource(R.mipmap.e1);
+        holder.img.setImageResource(R.mipmap.emotion);
 
 
         holder.img.setOnClickListener(new View.OnClickListener() {

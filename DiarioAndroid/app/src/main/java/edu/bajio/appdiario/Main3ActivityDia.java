@@ -20,12 +20,15 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.bajio.appdiario.Adapter.RecyclerAdapter;
 import edu.bajio.appdiario.Adapter.RecyclerViewAdaptador;
 import edu.bajio.appdiario.Class.Common;
 import edu.bajio.appdiario.Class.CommonDias;
 import edu.bajio.appdiario.Class.Dia;
 import edu.bajio.appdiario.Class.HTTPDataHandler;
 import edu.bajio.appdiario.Class.Usuario;
+import edu.bajio.appdiario.Model.Descripcion;
+import edu.bajio.appdiario.Model.TitleDia;
 
 public class Main3ActivityDia extends AppCompatActivity {
 
@@ -35,7 +38,10 @@ public class Main3ActivityDia extends AppCompatActivity {
     Button btnLogout;
 
     RecyclerView recyclerView;
-    RecyclerViewAdaptador recyclerViewAdaptador;
+    //RecyclerViewAdaptador recyclerViewAdaptador;
+    RecyclerAdapter recyclerAdapter;
+    List<TitleDia> titles;
+    List<Descripcion> descripciones;
 
 
     List<Dia> dias = new ArrayList<Dia>();
@@ -50,7 +56,7 @@ public class Main3ActivityDia extends AppCompatActivity {
         datos = getIntent().getExtras();
         username = datos.getString("usuario");
 
-
+        this.setTitle("Diario");
 
         btnAgregar = (FloatingActionButton) findViewById(R.id.btnDia);
         btnLogout = (Button) findViewById(R.id.btnLogout);
@@ -111,21 +117,30 @@ public class Main3ActivityDia extends AppCompatActivity {
             dias = gson.fromJson(s,listType);
             pd.dismiss();
 
+            titles = new ArrayList<>();
             for(int i = 0; i<dias.size();i++)
             {
                 dia = dias.get(i);
+                Descripcion de;
+
                 String user = dia.getUsuario();
                 if(user.equals(username))
                 {
+                    descripciones = new ArrayList<>();
+                    de = new Descripcion(dia.getDescripcion().toString(),dia.getNombre().toString(),dia.getTipo(),dia.getEmocion());
                     diasU.add(dia);
-
+                    descripciones.add(de);
+                    titles.add(new TitleDia(dia.getTitulo(),dia.getEmocion(),descripciones));
                 }
             }
 
-            recyclerViewAdaptador = new RecyclerViewAdaptador(diasU);
-            recyclerView.setAdapter(recyclerViewAdaptador);
+            //recyclerViewAdaptador = new RecyclerViewAdaptador(diasU);
+            //recyclerView.setAdapter(recyclerViewAdaptador);
 
-            recyclerView.setClickable(true);
+            //recyclerView.setClickable(true);
+            recyclerAdapter = new RecyclerAdapter(titles);
+            recyclerView.setLayoutManager(new LinearLayoutManager(Main3ActivityDia.this));
+            recyclerView.setAdapter(recyclerAdapter);
 
         }
     }
