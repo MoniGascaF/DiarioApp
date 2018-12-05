@@ -20,7 +20,6 @@ import edu.bajio.appdiario.Class.HTTPDataHandler;
 public class Main2ActivityReg extends AppCompatActivity {
 
 
-    Button btnRegresar;
     Button btnCreate;
     EditText txtUsuario;
     EditText txtPassword1;
@@ -30,7 +29,6 @@ public class Main2ActivityReg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2_reg);
-        btnRegresar = (Button) findViewById(R.id.btnRegresar);
         btnCreate = (Button) findViewById(R.id.btnAceptarR);
         txtUsuario = (EditText) findViewById(R.id.txtUserR);
         txtPassword1 = (EditText)findViewById(R.id.txtPwdR);
@@ -38,13 +36,6 @@ public class Main2ActivityReg extends AppCompatActivity {
 
         this.setTitle("Registro de Usuario");
 
-        btnRegresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intenta = new Intent (Main2ActivityReg.this, MainActivity.class);
-                startActivity(intenta);
-            }
-        });
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
