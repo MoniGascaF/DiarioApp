@@ -8,19 +8,11 @@
     tools:context=".Main3ActivityDia">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp">
 
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnLogout"
-            android:layout_gravity="left"
-            android:text="@string/logout"
-            style="@style/FlatButton"/>
-
         <TextView
-            android:layout_width="219dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Dairy"
             android:textAlignment="center"

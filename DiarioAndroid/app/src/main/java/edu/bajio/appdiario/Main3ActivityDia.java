@@ -35,7 +35,6 @@ public class Main3ActivityDia extends AppCompatActivity {
     FloatingActionButton btnAgregar;
     Bundle datos;
     String username;
-    Button btnLogout;
 
     RecyclerView recyclerView;
     //RecyclerViewAdaptador recyclerViewAdaptador;
@@ -59,7 +58,6 @@ public class Main3ActivityDia extends AppCompatActivity {
         this.setTitle("Diario");
 
         btnAgregar = (FloatingActionButton) findViewById(R.id.btnDia);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
 
         new GetData().execute(CommonDias.getAddressAPI());
 
@@ -75,14 +73,14 @@ public class Main3ActivityDia extends AppCompatActivity {
                 startActivity(intenta);
             }
         });
+    }
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intenta = new Intent (Main3ActivityDia.this, MainActivity.class);
-                startActivity(intenta);
-            }
-        });
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        // this is your backendcall
+        dias.clear();
+        new GetData().execute(CommonDias.getAddressAPI());
     }
 
     class GetData extends AsyncTask<String,Void,String> {

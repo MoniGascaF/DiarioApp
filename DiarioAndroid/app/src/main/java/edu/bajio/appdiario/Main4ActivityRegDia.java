@@ -63,7 +63,6 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
     EditText txtDescripcion;
     Button btnanalizar;
     EditText txtTitulo;
-    Button btnRegresar4;
 
     YouTubePlayerView YTPlayer;
 
@@ -98,7 +97,6 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
         btnanalizar = (Button) findViewById(R.id.btnAceptarDia);
         YTPlayer = (YouTubePlayerView) findViewById(R.id.YTVideo);
         txtTitulo = (EditText) findViewById(R.id.txtTitulo);
-        btnRegresar4 = (Button) findViewById(R.id.btnRegresar4);
 
         this.setTitle("Registrar Diario");
 
@@ -116,21 +114,13 @@ public class Main4ActivityRegDia extends YouTubeBaseActivity implements YouTubeP
                 else {
 
                     AskWatsonTask task = new AskWatsonTask();
-
                     task.execute(new String[]{});
+                    txtTitulo.setEnabled(false);
+                    txtDescripcion.setEnabled(false);
+                    btnanalizar.setEnabled(false);
                 }
             }
         });
-
-        btnRegresar4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intenta = new Intent (Main4ActivityRegDia.this, Main3ActivityDia.class);
-                intenta.putExtra("usuario",username);
-                startActivity(intenta);
-            }
-        });
-
     }
 
 
